@@ -46,7 +46,7 @@ Example:
 
 ▶️ Build & Run
 Requirements:
-- Flutter SDK (stable)
+- Flutter SDK
 - Android Studio or VS Code
 - Android Emulator or physical device
 
