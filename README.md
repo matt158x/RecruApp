@@ -26,7 +26,6 @@ Example:
 - finds and displays the outlier
 
 3. If the input is ambiguous (e.g. more than one possible outlier), the user can:
-
 ✔ Auto-fix the input
 ✍️ Fix it manually
 ▶ Continue anyway - The application will return the first number in the array that does not match the others
