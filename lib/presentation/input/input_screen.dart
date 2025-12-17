@@ -5,6 +5,9 @@ import 'input_controller.dart';
 import '../../domain/usecases/find_outlier_usecase.dart';
 import '../../domain/usecases/auto_fix_outliers_usecase.dart';
 import '../../domain/errors/outlier_errors.dart';
+import '../common/gradient_background.dart';
+import 'package:flutter/services.dart';
+
 
 class InputScreen extends StatefulWidget {
   const InputScreen({super.key});
@@ -49,34 +52,35 @@ class _InputScreenState extends State<InputScreen> {
   void _showDecisionDialog(MultipleOutliersError error) {
     showDialog(
       context: context,
-      builder: (_) => AlertDialog(
-        title: const Text('Uwaga'),
-        content: Text(
-          '${error.message}. Czy chcesz kontynuować?',
-        ),
-        actions: [
-          TextButton(
-            child: const Text('Popraw automatycznie'),
-            onPressed: () {
-              Navigator.pop(context);
-              _autoFix(error.type);
-            },
+      builder: (_) =>
+          AlertDialog(
+            title: const Text('Uwaga'),
+            content: Text(
+              '${error.message}. Czy chcesz kontynuować?',
+            ),
+            actions: [
+              TextButton(
+                child: const Text('Popraw automatycznie'),
+                onPressed: () {
+                  Navigator.pop(context);
+                  _autoFix(error.type);
+                },
+              ),
+              TextButton(
+                child: const Text('Popraw manualnie'),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+              TextButton(
+                child: const Text('Kontynuuj mimo to'),
+                onPressed: () {
+                  Navigator.pop(context);
+                  _forceContinue();
+                },
+              ),
+            ],
           ),
-          TextButton(
-            child: const Text('Popraw manualnie'),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-          TextButton(
-            child: const Text('Kontynuuj mimo to'),
-            onPressed: () {
-              Navigator.pop(context);
-              _forceContinue();
-            },
-          ),
-        ],
-      ),
     );
   }
 
@@ -119,25 +123,79 @@ class _InputScreenState extends State<InputScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Wykrywacz Liczby Odstającej')),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          children: [
-            TextField(
-              controller: _textController,
-              keyboardType: TextInputType.number,
-              decoration: const InputDecoration(
-                labelText: 'Podaj liczby po przecinku',
-                hintText: '2,4,0,100,4,11,2602,36',
+      backgroundColor: Colors.transparent,
+      body: GradientBackground(
+        child: Padding(
+          padding: const EdgeInsets.all(25),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const SizedBox(height: 50),
+
+              const Text(
+                'Wykrywacz Liczby Odstającej',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
               ),
-            ),
-            const SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: _onSearch,
-              child: const Text('Wyszukaj'),
-            ),
-          ],
+
+              const SizedBox(height: 80),
+
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 4,
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(16),
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Colors.black26,
+                      blurRadius: 8,
+                      offset: Offset(0, 4),
+                    ),
+                  ],
+                ),
+                child: TextField(
+                  controller: _textController,
+                  keyboardType: TextInputType.number,
+                  inputFormatters: [
+                    FilteringTextInputFormatter.allow(
+                      RegExp(r'[0-9,-]'),
+                    ),
+                  ],
+                  decoration: const InputDecoration(
+                    labelText: 'Podaj liczby po przecinku',
+                    hintText: '2,4,0,100,4,11,2602,36',
+                    border: InputBorder.none,
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 50),
+
+              ElevatedButton(
+                onPressed: _onSearch,
+                style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(vertical: 14),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(14),
+                  ),
+                ),
+                child: const Text(
+                  'Wyszukaj',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
