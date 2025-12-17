@@ -1,10 +1,10 @@
 # RecruApp is a mobile app for detecting an outlier number in a set of integers, built with Flutter.
 
 RecruApp is a simple mobile application that allows users to input a list of integers and automatically detect the outlier value — a number that differs in parity (even/odd) from the rest of the dataset.
-<img width="280" height="580" alt="image" src="https://github.com/user-attachments/assets/d5a61dda-fa4e-4a43-b364-21284161e434"/>
-<img width="280" height="580" alt="image" src="https://github.com/user-attachments/assets/36625b7b-82b6-47a2-acac-f3fcb37343fa"/>
-<img width="280" height="580" alt="image" src="https://github.com/user-attachments/assets/126c5e66-a8e6-445c-ae7e-fa9c263248e1"/>
-<img width="280" height="580" alt="image" src="https://github.com/user-attachments/assets/55302ba2-ca24-4309-8cad-457866777424"/>
+<img width="240" height="520" alt="image" src="https://github.com/user-attachments/assets/d5a61dda-fa4e-4a43-b364-21284161e434"/>
+<img width="240" height="520" alt="image" src="https://github.com/user-attachments/assets/36625b7b-82b6-47a2-acac-f3fcb37343fa"/>
+<img width="240" height="520" alt="image" src="https://github.com/user-attachments/assets/126c5e66-a8e6-445c-ae7e-fa9c263248e1"/>
+<img width="240" height="520" alt="image" src="https://github.com/user-attachments/assets/55302ba2-ca24-4309-8cad-457866777424"/>
 
 ✨ Key Features
 
