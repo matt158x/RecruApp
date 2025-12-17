@@ -4,13 +4,13 @@ RecruApp is a simple mobile application that allows users to input a list of int
 
 ✨ Key Features
 
-🔍 Outlier Detection – Finds the single number that differs in parity from the rest
-🧠 Smart Validation – Detects missing even/odd numbers and ambiguous input cases
-🛠 Auto-Fix Mechanism – Automatically corrects invalid input on user request
-✍️ Input Normalization – Handles extra commas, misplaced minus signs, and malformed input
-⚠️ User Decisions – Allows users to continue, auto-fix, or manually adjust invalid input
-📱 Cross-Platform – Runs on both Android and iOS
-🎨 Modern UI
+- 🔍 Outlier Detection – Finds the single number that differs in parity from the rest
+- 🧠 Smart Validation – Detects missing even/odd numbers and ambiguous input cases
+- 🛠 Auto-Fix Mechanism – Automatically corrects invalid input on user request
+- ✍️ Input Normalization – Handles extra commas, misplaced minus signs, and malformed input
+- ⚠️ User Decisions – Allows users to continue, auto-fix, or manually adjust invalid input
+- 📱 Cross-Platform – Runs on both Android and iOS
+- 🎨 Modern UI
 
 🧩 How It Works
 
@@ -26,9 +26,9 @@ Example:
 - finds and displays the outlier
 
 3. If the input is ambiguous (e.g. more than one possible outlier), the user can:
-✔ Auto-fix the input
-✍️ Fix it manually
-▶ Continue anyway - The application will return the first number in the array that does not match the others
+- ✔ Auto-fix the input
+- ✍️ Fix it manually
+- ▶ Continue anyway - The application will return the first number in the array that does not match the others
 
 
 🛠 Technologies Used
